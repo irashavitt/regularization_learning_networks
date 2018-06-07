@@ -47,8 +47,8 @@ class RegularizationLearningLayer(Callback):
             self._lambdas -= self._lr * lambda_gradients
 
             # Project the lambdas onto the simplex \sum(lambdas) = Theta
-            translatiion = (self._avg_reg - self._lambdas.mean().mean())
-            self._lambdas += translatiion
+            translation = (self._avg_reg - self._lambdas.mean().mean())
+            self._lambdas += translation
 
         # Clip extremely large lambda values to prevent overflow
         max_lambda_values = np.log(np.abs(self._weights / norms_derivative)).fillna(np.inf)
