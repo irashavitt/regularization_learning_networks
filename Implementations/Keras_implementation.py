@@ -17,7 +17,7 @@ class RLNCallback(Callback):
         typically have many weights in the network, and we optimize the coefficients in the log scale, optimal learning
         rates tend to be large, with best results between 10^4-10^6.
         """
-        super(RlCallback, self).__init__()
+        super(RLNCallback, self).__init__()
         self._kernel = layer.kernel
         self._prev_weights, self._weights, self._prev_regularization = [None] * 3
         self._avg_reg = avg_reg
