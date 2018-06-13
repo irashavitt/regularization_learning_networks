@@ -4,7 +4,7 @@ from pandas import DataFrame
 import numpy as np
 
 
-class RegularizationLearningLayer(Callback):
+class RLNCallback(Callback):
     def __init__(self, layer, norm=1, avg_reg=-7.5, learning_rate=6e5):
         """
         An implementation of Regularization Learning, described in https://arxiv.org/abs/1805.06440, as a Keras
@@ -17,7 +17,7 @@ class RegularizationLearningLayer(Callback):
         typically have many weights in the network, and we optimize the coefficients in the log scale, optimal learning
         rates tend to be large, with best results between 10^4-10^6.
         """
-        super(RegularizationLearningLayer, self).__init__()
+        super(RlCallback, self).__init__()
         self._kernel = layer.kernel
         self._prev_weights, self._weights, self._prev_regularization = [None] * 3
         self._avg_reg = avg_reg
